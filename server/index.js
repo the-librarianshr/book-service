@@ -8,17 +8,8 @@ const port = 3030;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(express.static(__dirname + '/../public/dist'));
-// app.get('/books', cors(), (req, res) => {
-//   db.findAll(response => {
-//     axios.get('http://localhost:3002/authors/' + response[0].author_id);
-//     res.json(response);
-//     res.end();
-//   });
-// });
 
-
-
+app.options('*', cors());
 app.use(express.static(__dirname + '/../public/dist'));
 app.get('/book/:id', cors(), (req, res) => {
   let id = req.params.id;
@@ -26,7 +17,8 @@ app.get('/book/:id', cors(), (req, res) => {
     id = 0;
   }
   console.log('id: ', id);
-  // axios.get('http://localhost:3002/authors/' + id);
+  axios.get('http://localhost:3002/authors/' + id).then(res => res)
+
   db.find(id, response => {
     res.json(response);
     res.end();
@@ -34,11 +26,6 @@ app.get('/book/:id', cors(), (req, res) => {
 });
 
 app.use('/:id', express.static(__dirname + '/../public/dist'));
-
-// app.get('*', (req, res) => {
-//   res.redirect('/');
-//   res.end();
-// })
 
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
