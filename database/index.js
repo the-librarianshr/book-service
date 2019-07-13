@@ -6,13 +6,7 @@ let bookSchema = mongoose.Schema({
     type: Number,
     unique: true,
   },
-  author: {
-    id: {
-      type: Number,
-      unique: true,
-    },
-    name: String
-  },
+  author_id: Number,
   image: String,
   title: String,
   description: String,

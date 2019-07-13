@@ -17,10 +17,7 @@ const createBook = (id) => {
   let book = {};
   getRandomImage(res => {
     book.id = id;
-    book.author = {
-      id,
-      name: faker.name.findName()
-    }
+    book.author_id = Math.floor(Math.random() * 100);
     book.title = `The ${faker.company.catchPhraseAdjective()} ${faker.company.catchPhraseNoun().split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ')
       }`;
     book.description = faker.lorem.sentences(5);
