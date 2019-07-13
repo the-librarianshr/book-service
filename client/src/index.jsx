@@ -11,13 +11,14 @@ class App extends React.Component {
     this.randomizeBook = this.randomizeBook.bind(this);
   }
   getBook() {
-    var url = document.URL.slice(27);
+    var url = document.URL.slice(22);
     if (url === '') {
-      $.get('http://localhost:3030/books').then(book => {
+      $.get('http://localhost:3030/book/0').then(book => {
+        console.log('book', book);
         this.setState({ book });
       });
     } else {
-      $.get('http://localhost:3030/' + url).then(book => {
+      $.get('http://localhost:3030/book/' + url).then(book => {
         console.log('book', book);
         this.setState({ book });
       });
