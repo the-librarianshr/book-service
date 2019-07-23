@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/books', { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect('mongodb://172.17.0.2/books', { useNewUrlParser: true, useCreateIndex: true });
 
 let bookSchema = mongoose.Schema({
   id: {

@@ -21,7 +21,7 @@ const createBook = (id) => {
     book.title = `The ${faker.company.catchPhraseAdjective()} ${faker.company.catchPhraseNoun().split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ')
       }`;
     book.description = faker.lorem.sentences(5);
-    book.year = faker.date.past(100);
+    book.year = faker.date.past(100).getFullYear();
     book.rating = `${Math.floor(Math.random() * 5)}.${Math.floor(Math.random() * 10)}`;
     book.image = res;
     book.genre = genres[Math.floor(Math.random() * 9)];
@@ -36,9 +36,8 @@ for (var i = 0; i <= 100; i++) {
 
 setTimeout(() => {
   console.log(books);
-  fs.writeFileSync('data.json', JSON.stringify(books));
+  process.exit();
 }, 3000);
-
 
 
 
