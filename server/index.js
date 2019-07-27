@@ -25,8 +25,8 @@ app.get('/book/:id', cors(), (req, res) => {
     id = 0;
   }
   console.log('id: ', id);
-  axios.get('http://localhost:3002/authors/' + id).then(res => res);
-  axios.get('https://localhost:3004/');
+  // axios.get('http://localhost:3002/authors/' + id).then(res => res);
+  // axios.get('https://localhost:3004/');
   db.find(id, response => {
     res.json(response);
     res.end();
