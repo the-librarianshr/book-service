@@ -4,4 +4,4 @@ COPY . .
 RUN npm install
 RUN npm run seed
 EXPOSE 3030
-CMD ["npm", "node-start"]
+CMD ["node", "server/index.js"]
