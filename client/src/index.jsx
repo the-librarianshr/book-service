@@ -19,7 +19,7 @@ class App extends React.Component {
     //   console.log('book', book);
     //   this.setState({ book });
     // });
-    $.get('http://localhost:3030/books').then(books => {
+    $.get(`${process.env.SERVER}/books`).then(books => {
       this.setState({ book: books });
     });
   }
