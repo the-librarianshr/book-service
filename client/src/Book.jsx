@@ -20,7 +20,6 @@ const Book = book => {
           <p>{book.description}</p>
         </div>
       </div>
-      <div />
     </div>
   );
 };
